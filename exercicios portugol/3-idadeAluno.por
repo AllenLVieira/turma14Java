@@ -11,10 +11,10 @@ programa
 		inteiro idadeUsuario
 		escreva("Olá, digite o seu nome: ")
 		leia(nomeUsuario)
-		escreva("\nQual ano você nasceu (4 dígitos):")
+		escreva("\nQual ano você nasceu (4 dígitos): ")
 		leia(anoNascimentoUsuario)
 		idadeUsuario = anoAtual - anoNascimentoUsuario
-		escreva("\nBem vindo "+nomeUsuario+", você tem aproximadamente "+idadeUsuario+" e é um alune da Generation Brasil :D")
+		escreva("\nBem vindo "+nomeUsuario+", você tem aproximadamente "+idadeUsuario+" anos e é um alune da Generation Brasil :D")
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -22,7 +22,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 506; 
+ * @POSICAO-CURSOR = 344; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
