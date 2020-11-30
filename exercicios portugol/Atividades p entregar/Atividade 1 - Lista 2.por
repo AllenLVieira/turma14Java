@@ -4,7 +4,7 @@ programa
 	
 	funcao inicio()
 	{
-		real pesoTomate, E=0.0, M=0
+		real pesoTomate, E=0.0, M=0.0
 		const real multaPorQuilo = 4.0
 		const real pesoMaximoTomate = 50.0
 		escreva("João, quantos quilos de tomate você trouxe hoje? ")
@@ -28,7 +28,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 526; 
+ * @POSICAO-CURSOR = 102; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
