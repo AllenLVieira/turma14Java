@@ -21,6 +21,9 @@ programa
 			senao se(indicePoluicaoAtual >= 0.5){
 				escreva("\nTodas as indústrias devem suspender suas atividades imediatamente.")
 			}
+			senao{
+				escreva("\nOs grupos estão poluindo menos que o limite aceitável. Parabéns!")
+			}
 		}
 		senao{
 				escreva("\nÍndice inválido.")
@@ -32,7 +35,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 944; 
+ * @POSICAO-CURSOR = 1041; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
