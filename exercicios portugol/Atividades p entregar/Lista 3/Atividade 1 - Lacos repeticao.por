@@ -22,11 +22,10 @@ programa
 			se(salariosPopulacao < 100){
 				auxSalarioMenor += 1
 			}
-			porcentagemSalarioMenor = (auxSalarioMenor/populacao)*100
 			somaSalario = somaSalario + salariosPopulacao
 		}
 		mediaSalario = somaSalario/populacao
-		
+		porcentagemSalarioMenor = (auxSalarioMenor/populacao)*100
 		para (inteiro i = 0; i < populacao; i++)
 		{
 			escreva("Digite quantos filhos o ",i+1, " habitante possui: ")
@@ -50,7 +49,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1449; 
+ * @POSICAO-CURSOR = 897; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
