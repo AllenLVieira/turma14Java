@@ -4,19 +4,19 @@ programa
 	inclua biblioteca Texto
 
 	const inteiro ANIVERSARIOCONTA = 15
-	const inteiro MAXMOVIMENTACOES = 5
+	const inteiro MAXMOVIMENTACOES = 3
 
 	cadeia nome[] = {"Allen de Lima Vieira","André de Brito Silva da Costa","Bárbara Liboni Guerra","Beatriz Martins","Beymar Jhoel Acapa Lima","Breno Nogueira Botelho Noccioli","Daniel Augusto Gomes Ferreira Filho","Danilo Mendes Ferreira","Danilo Pereira da Silva","Davi Silva Vieira","Diego Vinicio da Silva Nascimento","Erick Costa Ferreira","Ewerton Inacio Lima","Fernanda Agapito","Fernanda Barbosa Ferraz","Francisco José Pires","Gabriel Sérgio Nascimento Santos Gonçalves","Gideão da Silva Idelfonso","Gilson Amorim de Matos","Guilherme Gonçalves da Silva","Gustavo Rabelo Teles","Heloisa Beatriz de Oliveira Costa","Igor Mateus Queiroz Gato","Isabel Emiko Yamakawa Oyama","Jackeline Akemi de Moura","José Jorge Hauck Júnior","Juliana Santos André","Kélven Cleiton de Araújo Brandão","Laís Lima Santos","Lucas anseloni barros","Lucas Gonçalves da SIlva","luis felipe da silva","Luiz Felipe da Silva Magalhães","Marcos Eduardo Gomes Gonçalves","Micaely da Silva Lima","Rafaela Oliveira Silva","Tiago dos Santos Martins","Verônica Navarro Almenara","Vinicius Alves Miranda"}
 	caracter genero[] = {'M','M','F','F','M','M','M','M','M','M','M','M','M','F','F','M','M','M','M','M','M','F','M','F','F','M','F','M','F','M','M','M','M','M','F','F','M','F','M'}
 	inteiro numeroConta[39]
 	
-	real saldoConta = 0.0 , movimentoConta[10]
+	real saldoConta = 0.0 , movimentoConta[MAXMOVIMENTACOES], emprestimo
 	caracter verificacaoTalao, continuar
-	cadeia opcao, status
+	cadeia opcao, status, especial
 	inteiro numeroTalao = 0, diaHoje,x 
-	cadeia cpfConta, emprestimo
+	cadeia cpfConta
 	real maximoEmprestimo= 5000.0, valorLimite = 2000.0 
-	inteiro numConta,tipoConta, especial
+	inteiro numConta,tipoConta
 	
 	funcao inicio()
 	{
@@ -28,12 +28,12 @@ programa
 		leia(numConta)
 		escreva("\nDigite o número do seu CPF: ")
 		leia(cpfConta)
-		escreva("\nDigite o dia de hoje: ")
+		/*escreva("\nDigite o dia de hoje: ")
 		leia(diaHoje)
 		enquanto(diaHoje<1 ou diaHoje>31 ){
 			escreva("\nValor inválido! Digite o dia de hoje: ")
 			leia(diaHoje)
-		}				
+		}*/				
 		para(x = 0; x < 39; x++){
 			se(numConta == numeroConta[x] e genero[x] == 'M'){
 				limpa()
@@ -90,8 +90,9 @@ programa
 
 	funcao creditoOuDebito(){
 		para(inteiro i = 0; i < MAXMOVIMENTACOES;i++){
+			limpa()
 			se(saldoConta == 0.0){
-				escreva("\nVocê não tem saldo. Quanto você quer depositar: R$ ")
+				escreva("\nSaldo atual: R$ ",saldoConta,"\nQuanto você quer depositar: R$ ")
 				leia(movimentoConta[i])
 				enquanto(movimentoConta[i] < 0.0){
 					escreva("\nValor inválido! Quanto você quer depositar: R$ ")
@@ -103,6 +104,12 @@ programa
 				escreva("\nVocê quer Creditar (C) ou Debitar (D) da conta? ")
 				leia(status)
 				status = Texto.caixa_alta(status)
+				enquanto (status != "C" e status != "D")
+				{
+					escreva("Operação inválida! Favor digitar (C) para depósito ou (D) para Saque: ")
+					leia(status)
+					status = Texto.caixa_alta(status)
+				}
 				se(status == "C"){
 					escreva("\nQuanto você quer depositar: R$ ")
 					leia(movimentoConta[i])
@@ -128,22 +135,32 @@ programa
 	
 	funcao contaPoupanca(){
 		faca{
+			escreva("\nDigite o dia de hoje: ")
+			leia(diaHoje)
+			enquanto(diaHoje<1 ou diaHoje>31 ){
+				escreva("\nValor inválido! Digite o dia de hoje: ")
+				leia(diaHoje)
+			}
 			creditoOuDebito()
-			escreva("Você deseja abrir o App G6 Bank hoje (S ou N)? ")
-			leia(opcao)
-			opcao = Texto.caixa_alta(opcao)
 			se(diaHoje == ANIVERSARIOCONTA){
 				saldoConta = saldoConta*(1+0.5/100) 
 			}
+			escreva("\nVocê tem ",Mat.arredondar(saldoConta,2)," reais na sua conta do G6 Bank")
+			escreva("\nVocê deseja abrir o App G6 Bank hoje (S ou N)? ")
+			leia(opcao)
+			opcao = Texto.caixa_alta(opcao)
 		}enquanto(opcao == "S")
 		limpa()
-		escreva("Você tem ",Mat.arredondar(saldoConta,2)," reais na sua conta do G6 Bank")	
+		escreva("Obrigado ",nome[x]," por utilizar o App G6 Bank")	
+		escreva("\nNúmero da conta: ",numConta)
+		escreva("\nNúmero do CPF: ",cpfConta)
+		escreva("\n\nVocê tem ",Mat.arredondar(saldoConta,2)," reais na sua conta do G6 Bank")	
 	}
 	
 	funcao contaCorrente(){
 		faca{
 			creditoOuDebito()
-			escreva("Você deseja imprimar um talão de cheque [S] ou [N]? ")
+			escreva("Você deseja imprimar um talão de cheque (S ou N)? ")
 			leia(verificacaoTalao)
 			enquanto (verificacaoTalao != 's' e verificacaoTalao != 'S' e verificacaoTalao != 'n' e verificacaoTalao != 'n'){
 				escreva("\nOperação incorreta. Digite [S] para continuar ou [N] para parar? ")
@@ -152,12 +169,23 @@ programa
 			se(verificacaoTalao == 's' ou verificacaoTalao =='S'){
 				numeroTalao++
 			}
-			escreva("\nVocê deseja abrir o App G6 Bank hoje (S ou N)? ")
+			escreva("\nVocê tem ",Mat.arredondar(saldoConta,2)," reais na sua conta do G6 Bank")
+			escreva("\nNúmero de talões de cheque impressos: ",numeroTalao)
+			escreva("\n\nVocê deseja abrir o App G6 Bank hoje (S ou N)? ")
 			leia(opcao)
 			opcao = Texto.caixa_alta(opcao)
+			enquanto (opcao!="S" e opcao!="N")
+			{
+				escreva("Valor inválido! Digite (S)-Sim ou (N)-Não ")
+				leia(opcao)
+			}	
+			
 		}enquanto(opcao =="S")
 		limpa()
-		escreva("Seu saldo é: $",saldoConta)
+		escreva("Obrigado ",nome[x]," por utilizar o App G6 Bank")	
+		escreva("\nNúmero da conta: ",numConta)
+		escreva("\nNúmero do CPF: ",cpfConta)
+		escreva("\n\nVocê tem ",Mat.arredondar(saldoConta,2)," reais na sua conta do G6 Bank")
 		escreva("\nNúmero de talões de cheque impressos: ",numeroTalao)
 	}
 	
@@ -165,13 +193,15 @@ programa
 		faca{
 			para (x=0; x<MAXMOVIMENTACOES; x++)
 			{
+				limpa()
 				escreva("\nVocê quer Creditar (C) ou Debitar (D) da conta? ")
 				leia(status)
 				status = Texto.caixa_alta(status)
 				enquanto (status != "C" e status != "D")
 				{
-					escreva("Valor inválido! Favor digitar C para depósito ou D para Saque: ")
+					escreva("Operação inválida! Favor digitar (C) para depósito ou (D) para Saque: ")
 					leia(status)
+					status = Texto.caixa_alta(status)
 				}
 				se (status=="C")
 				{
@@ -182,8 +212,7 @@ programa
 						escreva("\nValor inválido! Quanto você quer depositar: R$")
 						leia(movimentoConta[x])						
 					} 
-					saldoConta=saldoConta+movimentoConta[x]
-					escreva("Seu novo saldo é: \n",saldoConta)				
+					saldoConta=saldoConta+movimentoConta[x]			
 				}
 				senao se (status =="D")
 				{
@@ -201,16 +230,16 @@ programa
 					}	
 					se (movimentoConta[x]>saldoConta)
 					{
-						escreva("Saldo insuficiente! Você deseja utilizar o crédito especial? ")
 						escreva("\nLimite disponível: R$",valorLimite)
-						escreva("\nDigite 1 - Sim ou 2 - Não ")
+						escreva("\nSaldo insuficiente! Você deseja utilizar o crédito especial (S ou N)?")
 						leia(especial)
-						enquanto (especial!=1 e especial!=2)
+						especial = Texto.caixa_alta(especial)
+					enquanto (especial!="S" e especial!="N")
 						{
-							escreva("Valor inválido! Digite 1-Sim ou 2-Não ")
+							escreva("Valor inválido! Digite (S)-Sim ou (N)-Não ")
 							leia(especial)
-						}										
-						se (especial==1)
+						}											
+						se (especial=="S")
 						{	
 							valorLimite=((saldoConta+valorLimite)-movimentoConta[x])
 							movimentoConta[x]= -movimentoConta[x]
@@ -226,73 +255,72 @@ programa
 					}
 				}			
 			}
-			escreva("\nVocê deseja abrir o App G6 Bank hoje (S ou N)? ")
+			escreva("\nVocê tem ",Mat.arredondar(saldoConta,2)," reais na sua conta do G6 Bank")
+			escreva("\nSeu limite disponível é: R$ ",valorLimite)
+			escreva("\n\nVocê deseja abrir o App G6 Bank hoje (S ou N)? ")
 			leia(opcao)
 			opcao = Texto.caixa_alta(opcao)
 		}enquanto(opcao =="S")
-		escreva("Seu saldo é: R$ ",saldoConta)
-		escreva("\nSeu Limite disponível é: R$ ",valorLimite)
+		limpa()
+		escreva("Obrigado ",nome[x]," por utilizar o App G6 Bank")	
+		escreva("\nNúmero da conta: ",numConta)
+		escreva("\nNúmero do CPF: ",cpfConta)
+		escreva("\n\nVocê tem ",Mat.arredondar(saldoConta,2)," reais na sua conta do G6 Bank")
+		escreva("\nSeu limite disponível é: R$ ",valorLimite)
 	}
 	
 	funcao contaEmpresa(){
 		faca{
-			para(x=0;x<MAXMOVIMENTACOES;x++)
+			creditoOuDebito()
+			escreva("\nVocê deseja realizar um empréstimo (S ou N)?")
+			leia(opcao)
+			opcao = Texto.caixa_alta(opcao)
+			enquanto (opcao!="S" e opcao!="N")
 			{
-				escreva("\nVocê quer Creditar (C) ou Debitar (D) da conta? ")
-				leia(status)
-				status = Texto.caixa_alta(status)
-				se(status =="C")
-				{
-					escreva("\nQuanto você quer depositar: R$ ")
-					leia(movimentoConta[x])
-					enquanto(movimentoConta[x]<0)
+				escreva("Valor inválido! Digite (S)-Sim ou (N)-Não ")
+				leia(opcao)
+			}
+			se(maximoEmprestimo != 0){
+				se (opcao =="S"){
+					escreva("Quanto você quer de empréstimo: R$ ")
+					leia(emprestimo)
+					enquanto (emprestimo<0){
+						escreva("\nValor inválido! Quanto você quer de empréstimo: R$ ")
+						leia(emprestimo)						
+					} 
+					enquanto (emprestimo >maximoEmprestimo)
 					{
-						escreva("\nValor inválido! Quanto você quer depositar: R$ ")
-						leia(movimentoConta[x])
-					}
-					saldoConta=saldoConta+movimentoConta[x]	
-				}
-				senao se (status =="D")
-				{
-					escreva("\nQuanto você quer retirar: R$ ")
-					leia(movimentoConta[x])	
-					enquanto(movimentoConta[x]<0)
-					{
-						escreva("\nValor inválido. Quanto você quer retirar: R$ ")
-						leia(movimentoConta[x])
-					}
-					se(movimentoConta[x]<maximoEmprestimo){
-						escreva("\nVocê deseja realizar um empréstimo S/N?")
+						escreva("\nValor inválido! Valor de empréstimo disponível: R$ ",maximoEmprestimo)
+						escreva("\nQuanto você quer de empréstimo: R$ ")
 						leia(emprestimo)
-						emprestimo = Texto.caixa_alta(emprestimo)
-						se (emprestimo =="S")
-						{
-							escreva("Quanto você quer de empréstimo: R$ ")
-							leia(movimentoConta[x])
-							enquanto (movimentoConta[x] >maximoEmprestimo)
-							{
-								escreva("Valor inváido. Quanto você quer de empréstimo: R$ ")
-								leia(movimentoConta[x])
-							}
-							maximoEmprestimo=maximoEmprestimo-movimentoConta[x]
-							saldoConta=saldoConta+movimentoConta[x]
-							escreva("Seu novo saldo é"," R$ ", saldoConta)
-						}
-						senao 
-						{
-							escreva("\nSolicitação de crédito cancelada.")
-						}
+						enquanto (emprestimo<0){
+							escreva("\nValor inválido! Quanto você quer de empréstimo: R$ ")
+							leia(emprestimo)						
+						} 
 					}
-					movimentoConta[x] = -movimentoConta[x]
-					saldoConta=saldoConta+movimentoConta[x]
+					maximoEmprestimo=maximoEmprestimo-emprestimo
+					saldoConta=saldoConta+emprestimo
+				}
+				senao
+				{
+					escreva("\nSolicitação de crédito cancelada.")
 				}
 			}
-			escreva("\nSeu saldo é"," R$ ", saldoConta)  
+			senao{
+				escreva("\nInfelizmente você não possui mais limite de empréstimo.")	
+			}
+			escreva("\n\nVocê tem ",Mat.arredondar(saldoConta,2)," reais na sua conta do G6 Bank")
+			escreva("\nSeu limite disponível é: R$ ",maximoEmprestimo)  
 			escreva("\nVocê deseja abrir o App G6 Bank hoje (S ou N)? ")
 			leia(opcao)
 			opcao = Texto.caixa_alta(opcao)
 		}enquanto(opcao =="S")
-		escreva("Seu saldo é: $",saldoConta)
+		limpa()
+		escreva("Obrigado ",nome[x]," por utilizar o App G6 Bank")	
+		escreva("\nNúmero da conta: ",numConta)
+		escreva("\nNúmero do CPF: ",cpfConta)
+		escreva("\n\nVocê tem ",Mat.arredondar(saldoConta,2)," reais na sua conta do G6 Bank")
+		escreva("\nValor de empréstimo disponível: R$ ",maximoEmprestimo)
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -300,7 +328,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 9250; 
+ * @POSICAO-CURSOR = 11079; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
