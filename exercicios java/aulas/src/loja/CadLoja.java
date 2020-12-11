@@ -104,9 +104,11 @@ public class CadLoja {
 		System.out.println("\nCarrinho de compras");
 		linha(80);
 		System.out.println();
+		System.out.println("QTD.\t\tPREÇO\t\tNOME DO PRODUTO");
+		linha(80);
 		for (int i = 0; i < 10; i++) {
 			if (carrinho[i] != 0) {
-				System.out.printf("%s\t\t%d\t\t%.2f\n", nomeProdutos[i], carrinho[i], precoProdutos[i]);
+				System.out.printf("%d\t\t%.2f\t\t%s\n", carrinho[i], precoProdutos[i], nomeProdutos[i]);
 				somaTotal += carrinho[i] * precoProdutos[i];
 			}
 		}
