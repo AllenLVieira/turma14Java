@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class cadAlunos {
@@ -24,6 +25,8 @@ public class cadAlunos {
 		int mat, pesquisa = 0;
 		double notaAlunos[] = new double[40];
 		char escolha;
+		
+		
 
 		System.out.println("MAT\tTIPO\tNOME");
 		for (int i = 0; i < 40; i++) {
