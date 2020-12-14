@@ -6,8 +6,7 @@ public class CadLoja {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int opcao, estoqueProdutos[] = new int[] { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 }, cod, quantidade,
-				carrinho[] = new int[10];
+		int opcao, estoqueProdutos[] = new int[] { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 }, carrinho[] = new int[10];
 		String nome;
 		String codProdutos[] = new String[10], nomeProdutos[] = new String[] { "PLAFON REDONDO", "PENDENTE REDONDO",
 				"PENDENTE REDONDO CROMADO", "ABAJUR ALUMÍNIO", "PENDENTE 10 BOLAS", "ARANDELA", "PLAFON QUADRADO",
@@ -38,9 +37,10 @@ public class CadLoja {
 				} while ((genero != 'M') && (genero != 'F'));
 				System.out.printf("Seja bem vind%s, %s\n\n", retornaGenero(genero), nome);
 				adicionarCarrinho(codProdutos, estoqueProdutos, nomeProdutos, precoProdutos, carrinho);
-				carrinhoCompras(estoqueProdutos, nomeProdutos, precoProdutos, somaTotal,carrinho);
+				carrinhoCompras(estoqueProdutos, nomeProdutos, precoProdutos, somaTotal, carrinho);
 				break;
 			case 2:
+				mostrarEstoque(codProdutos, precoProdutos, nomeProdutos, estoqueProdutos);
 				System.out.println("WIP");
 				break;
 			case 3:
@@ -75,7 +75,7 @@ public class CadLoja {
 				quantidade = sc.nextInt();
 				if (estoqueProdutos[cod - 1] >= quantidade) {
 					estoqueProdutos[cod - 1] -= quantidade;
-					carrinho[cod-1] +=quantidade;
+					carrinho[cod - 1] += quantidade;
 				} else if (estoqueProdutos[cod - 1] == 0) {
 					System.out.println("Não temos mais este produto. Desculpe o incoveniente.");
 				} else {
@@ -86,7 +86,7 @@ public class CadLoja {
 						continuar = sc.next().toUpperCase().charAt(0);
 					} while ((continuar != 'S') && (continuar != 'N'));
 					if (continuar == 'S') {
-						carrinho[cod-1] +=estoqueProdutos[cod - 1];
+						carrinho[cod - 1] += estoqueProdutos[cod - 1];
 						estoqueProdutos[cod - 1] -= estoqueProdutos[cod - 1];
 					}
 				}
@@ -98,20 +98,21 @@ public class CadLoja {
 		} while (continuar == 'S');
 	}
 
-	static void carrinhoCompras(int estoqueProdutos[], String nomeProdutos[], double precoProdutos[],
-			double somaTotal, int carrinho[]) {
-		linha(80);
+	static void carrinhoCompras(int estoqueProdutos[], String nomeProdutos[], double precoProdutos[], double somaTotal,
+			int carrinho[]) {
 		System.out.println("\nCarrinho de compras");
 		linha(80);
 		System.out.println();
-		System.out.println("QTD.\t\tPREÇO\t\tNOME DO PRODUTO");
+		System.out.println("QTD.\t\tPREÇO UN.\tPREÇO TOTAL\tNOME DO PRODUTO");
 		linha(80);
+		System.out.println();
 		for (int i = 0; i < 10; i++) {
 			if (carrinho[i] != 0) {
-				System.out.printf("%d\t\t%.2f\t\t%s\n", carrinho[i], precoProdutos[i], nomeProdutos[i]);
+				System.out.printf("%d\t\t%.2f\t\t%.2f\t\t%s\n", carrinho[i], precoProdutos[i],(carrinho[i] * precoProdutos[i]), nomeProdutos[i]);
 				somaTotal += carrinho[i] * precoProdutos[i];
 			}
 		}
+		linha(80);
 		System.out.println("\n\nPreço total: " + somaTotal);
 	}
 
@@ -122,6 +123,16 @@ public class CadLoja {
 		System.out.println();
 		for (int i = 0; i < 10; i++) {
 			System.out.printf("%s\t\t%.2f\t\t%s\n", codProdutos[i], precoProdutos[i], nomeProdutos[i]);
+		}
+	}
+	
+	static void mostrarEstoque(String codProdutos[], double precoProdutos[], String nomeProdutos[], int estoqueProdutos[]) {
+		linha(80);
+		System.out.println("\nCÓD.\t\tPREÇO\t\tEstoque\t\tNOME DO PRODUTO");
+		linha(80);
+		System.out.println();
+		for (int i = 0; i < 10; i++) {
+			System.out.printf("%s\t\t%.2f\t\t%d\t\t%s\n", codProdutos[i], precoProdutos[i],estoqueProdutos[i], nomeProdutos[i]);
 		}
 	}
 
