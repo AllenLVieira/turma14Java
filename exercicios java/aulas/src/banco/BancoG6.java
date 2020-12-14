@@ -36,10 +36,10 @@ public class BancoG6 {
 		int conta[] = new int[40];
 		int contaUsuario, opcao;
 		double saldo[] = new double[40];
-		char tConta, continuar;
-		double saldoConta;
+		double limiteEspecial[] = new double[40];
+		double limiteUniversitario[] = new double[40];
+		// char tConta, continuar;
 		char a = ' ';
-		saldoConta = 0.0;
 
 		Random r = new Random();
 
@@ -49,6 +49,10 @@ public class BancoG6 {
 			talao[i] = 3;
 			totalTalao[i] = 0;
 
+			limiteEspecial[i] = r.nextDouble() * 900 + 100;
+
+			limiteUniversitario[i] = r.nextDouble() * 900 + 100;
+
 			conta[i] = (i + 1);
 			tipoConta[i] = r.nextInt(5) + 1;
 			saldo[i] = 0;
@@ -56,6 +60,9 @@ public class BancoG6 {
 		// Forçando tipos de conta para testar:
 		tipoConta[0] = 1;// Allen Vieira, conta 1 (indice 0), conta poupança
 		tipoConta[7] = 2;// Danilo Mendes, conta 8 (indice 7), conta corrente
+		tipoConta[10] = 3;// Diego Vinicio, conta 11 (índice 10), conta especial
+		tipoConta[34] = 4;// Marcos Gomes, conta 35 (índice 34), conta empresa
+		tipoConta[16] = 5;// Gabriel Braga, conta 17 (índice 16), conta universitária
 
 		linha(tamanho);
 		System.out.println("\n                                   App G6 Bank");
@@ -73,7 +80,18 @@ public class BancoG6 {
 			System.out.println("Seja bem vinda " + clientes[contaUsuario - 1]);
 		}
 		System.out.println("Número da conta: " + conta[contaUsuario - 1]);
-		System.out.println("Tipo da conta: " + tipoConta[contaUsuario - 1]);
+		if (tipoConta[contaUsuario - 1] == 1) {
+			System.out.println("Tipo da conta: " + tipoConta[contaUsuario - 1] + " - Poupança");
+		} else if (tipoConta[contaUsuario - 1] == 2) {
+			System.out.println("Tipo da conta: " + tipoConta[contaUsuario - 1] + " - Corrente");
+		} else if (tipoConta[contaUsuario - 1] == 3) {
+			System.out.println("Tipo da conta: " + tipoConta[contaUsuario - 1] + " - Especial");
+		} else if (tipoConta[contaUsuario - 1] == 4) {
+			System.out.println("Tipo da conta: " + tipoConta[contaUsuario - 1] + " - Empresa");
+		} else {
+			System.out.println("Tipo da conta: " + tipoConta[contaUsuario - 1] + " - Universitária");
+		}
+
 		do {
 			linha(tamanho);
 			System.out.println("\n\t\t\t\tMENU INICIAL");
@@ -95,17 +113,51 @@ public class BancoG6 {
 				} else if (tipoConta[contaUsuario - 1] == 2) {
 					a = contaCorrente(contaUsuario - 1, saldo, MAXMOVIMENTACOES, talao, totalTalao);
 				} else if (tipoConta[contaUsuario - 1] == 3) {
-					a = contaPoupanca(contaUsuario - 1, aniversarioConta, saldo, MAXMOVIMENTACOES);
+					a = contaEspecial(contaUsuario - 1, saldo, limiteEspecial, MAXMOVIMENTACOES);
 				} else if (tipoConta[contaUsuario - 1] == 4) {
-					a = contaPoupanca(contaUsuario - 1, aniversarioConta, saldo, MAXMOVIMENTACOES);
+					System.out.println("WIP");
+					a = 'N';
+				} else if (tipoConta[contaUsuario - 1] == 5) {
+					a = contaUniversitaria(contaUsuario, saldo, limiteUniversitario, MAXMOVIMENTACOES);
 				}
 			} else if (opcao == 2) {
-				System.out.println("WIP");
+				mostrarSaldo(contaUsuario - 1, clientes, tipoConta, saldo, aniversarioConta, totalTalao, limiteEspecial,
+						limiteUniversitario);
+				a = 'N';
 			} else {
-				System.out.println("Tchau");
+				System.out.println("Obrigado por utilizar o nosso app, volte sempre!");
 				System.exit(0);
 			}
 		} while (a == 'N');
+	}
+
+	public static void mostrarSaldo(int conta, String clientes[], int tipoConta[], double saldo[],
+			int aniversarioConta[], int totalTalao[], double limiteEspecial[], double limiteUniversitario[]) {
+		System.out.println("Nome: " + clientes[conta]);
+		System.out.println("Número da conta: " + (conta + 1));
+		if (tipoConta[conta] == 1) {
+			System.out.println("Tipo da conta: " + tipoConta[conta] + " - Poupança");
+		} else if (tipoConta[conta] == 2) {
+			System.out.println("Tipo da conta: " + tipoConta[conta] + " - Corrente");
+		} else if (tipoConta[conta] == 3) {
+			System.out.println("Tipo da conta: " + tipoConta[conta] + " - Especial");
+		} else if (tipoConta[conta] == 4) {
+			System.out.println("Tipo da conta: " + tipoConta[conta] + " - Empresa");
+		} else {
+			System.out.println("Tipo da conta: " + tipoConta[conta] + " - Universitária");
+		}
+		System.out.printf("\nSaldo da conta: %.2f", saldo[conta]);
+		if (tipoConta[conta] == 1) {
+			System.out.println("\nData de aniversário da conta: " + aniversarioConta[conta]);
+		} else if (tipoConta[conta] == 2) {
+			System.out.printf("\nQuantidade total de talões imprimida: %d\n", totalTalao[conta]);
+		} else if (tipoConta[conta] == 3) {
+			System.out.printf("\nLimite especial disponível: R$ %.2f\n", limiteEspecial[conta]);
+		} else if (tipoConta[conta] == 4) {
+			System.out.println("WIP");
+		} else if (tipoConta[conta] == 5) {
+			System.out.printf("\nLimite de universitário: R$ %.2f\n", limiteUniversitario[conta]);
+		}
 	}
 
 	static void linha(int tamanho) {
@@ -256,64 +308,66 @@ public class BancoG6 {
 		return continuar;
 	}
 
-	public static char contaEspecial(double saldoConta, int MAXMOVIMENTACOES) {
-
+	public static char contaEspecial(int contaUsuario, double saldo[], double limiteEspecial[], int MAXMOVIMENTACOES) {
+		Scanner sc = new Scanner(System.in);
 		double movimentoConta;
-		int numConta;
-		char status, continuar = ' ';
-
-		Scanner leia = new Scanner(System.in);
-
-		System.out.println("Digite o número da conta: ");
-		numConta = leia.nextInt();
-		System.out.printf("Seu saldo atual é: %.2f", saldoConta);
-		do {
-			for (int x = 0; x < MAXMOVIMENTACOES; x++) {
-				System.out.println("\n\nTransação " + (x + 1));
-				if (saldoConta == 0) {
-					System.out.println("Quanto você quer depositar: R$ ");
-					movimentoConta = leia.nextDouble();
-					while (movimentoConta < 0) {
-						System.out.println("\nValor inválido. Quanto você quer depositar: R$ ");
-						movimentoConta = leia.nextDouble();
-					}
-					saldoConta = saldoConta + movimentoConta;
-					System.out.printf("Saldo atual: R$ %.2f", saldoConta);
-				} else {
-					System.out.println("\nVocê quer Creditar (C) ou Debitar (D) da conta? ");
-					status = leia.next().toUpperCase().charAt(0);
-					while (status != 'C' && status != 'D') {
-						System.out.println("\nOpção inválida. Você quer Creditar (C) ou Debitar (D) da conta? ");
-						status = leia.next().toUpperCase().charAt(0);
-					}
-					if (status == 'C') {
-						System.out.println("Quanto você quer depositar: R$ ");
-						movimentoConta = leia.nextDouble();
-						while (movimentoConta < 0) {
-							System.out.println("\nValor inválido. Quanto você quer depositar: R$ ");
-							movimentoConta = leia.nextDouble();
-						}
-						saldoConta = saldoConta + movimentoConta;
-						System.out.printf("Saldo atual: R$ %.2f", saldoConta);
-					} else {
-						System.out.println("Quanto você quer retirar: R$ ");
-						movimentoConta = leia.nextDouble();
-						while (movimentoConta < 0 || movimentoConta > saldoConta) {
-							System.out.println("\nValor inválido. Quanto você quer retirar: R$ ");
-							movimentoConta = leia.nextDouble();
-						}
-						saldoConta = saldoConta - movimentoConta;
-						System.out.printf("Saldo atual: R$ %.2f", saldoConta);
-					}
+		int i = 0;
+		char status, continuar = 'S';
+		System.out.printf("\nLimite de crédito atual: R$ %.2f", limiteEspecial[contaUsuario]);
+		System.out.println("\nDeseja iniciar alguma movimentação na conta S/N");
+		continuar = sc.next().toUpperCase().charAt(0);
+		while (continuar != 'S' && continuar != 'N') {
+			System.out.println("Opção inválida. Você quer iniciar (S ou N)? ");
+			continuar = sc.next().toUpperCase().charAt(0);
+		}
+		while (continuar == 'S' && i < MAXMOVIMENTACOES) {
+			i++;
+			System.out.println("Você quer Creditar (C) ou Debitar (D) da conta? ");
+			status = sc.next().toUpperCase().charAt(0);
+			while (status != 'C' && status != 'D') {
+				System.out.println("Operação inválida! Favor digitar (C) para depósito ou (D) para Saque: ");
+				status = sc.next().toUpperCase().charAt(0);
+			}
+			if (status == 'C') {
+				System.out.println("Quanto você quer depositar? ");
+				movimentoConta = sc.nextDouble();
+				while (movimentoConta < 0) {
+					System.out.println("Valor inválido! Quanto você quer depositar? ");
+					movimentoConta = sc.nextDouble();
 				}
+				saldo[contaUsuario] = saldo[contaUsuario] + movimentoConta;
+				System.out.printf("\nSaldo atual: R$ %.2f", saldo[contaUsuario]);
+				System.out.printf("\nLimite de crédito atual: R$ %.2f", limiteEspecial[contaUsuario]);
+			} else if (status == 'D') {
+				System.out.println("Quanto você quer retirar? ");
+				movimentoConta = sc.nextDouble();
+				while (movimentoConta < 0) {
+					System.out.println("Valor inválido. Quanto você quer retirar? ");
+					movimentoConta = sc.nextDouble();
+				}
+				while (movimentoConta > (saldo[contaUsuario] + limiteEspecial[contaUsuario])) {
+					System.out.println("Saldo e Limite de crédito insuficientes! Quanto você quer retirar? ");
+					movimentoConta = sc.nextDouble();
+				}
+				saldo[contaUsuario] = saldo[contaUsuario] - movimentoConta;
+				if (saldo[contaUsuario] < 0) {
+					limiteEspecial[contaUsuario] = (saldo[contaUsuario] + limiteEspecial[contaUsuario]);
+					saldo[contaUsuario] = 0.0;
+				}
+				System.out.printf("\nSaldo atual: R$ %.2f", saldo[contaUsuario]);
+				System.out.printf("\nLimite de crédito atual: R$ %.2f", limiteEspecial[contaUsuario]);
 			}
 			System.out.println("\nVocê deseja continuar (S ou N)? ");
-			continuar = leia.next().toUpperCase().charAt(0);
+			continuar = sc.next().toUpperCase().charAt(0);
 			while (continuar != 'S' && continuar != 'N') {
-				System.out.println("\nOpção inválida. Deseja continuar? ");
-				continuar = leia.next().toUpperCase().charAt(0);
+				System.out.println("Opção inválida. Deseja continuar (S ou N)? ");
+				continuar = sc.next().toUpperCase().charAt(0);
 			}
-		} while (continuar == 'S');
+			if (i >= MAXMOVIMENTACOES) {
+				System.out.println("Você já movimentou o limite diário.");
+				continuar = 'N';
+			}
+		}
 		return continuar;
 	}
 
@@ -369,6 +423,63 @@ public class BancoG6 {
 			while (continuar != 'S' && continuar != 'N') {
 				System.out.println("Opção inválida. Você quer continuar (S ou N)? ");
 				continuar = sc.next().charAt(0);
+			}
+		} while (continuar == 'S');
+		return continuar;
+	}
+
+	public static char contaUniversitaria(int contaUsuario, double saldo[], double limite[], int MAXMOVIMENTACOES) {
+		Scanner leia = new Scanner(System.in);
+		double movimentoConta;
+		char status, continuar = 'S';
+
+		do {
+			for (int x = 0; x < MAXMOVIMENTACOES; x++) {
+
+				System.out.println("\n\n\nVocê quer Creditar (C) ou Debitar (D) da conta? ");
+				status = leia.next().toUpperCase().charAt(0);
+				while (status != 'C' && status != 'D') {
+					System.out.println("Operação inválida! Favor digitar (C) para depósito ou (D) para Saque: ");
+					status = leia.next().toUpperCase().charAt(0);
+				}
+				if (status == 'C') {
+					System.out.println("Quanto você quer depositar? ");
+					movimentoConta = leia.nextDouble();
+					while (movimentoConta < 0) {
+						System.out.println("Valor inválido! Quanto você quer depositar? ");
+						movimentoConta = leia.nextDouble();
+					}
+					saldo[contaUsuario] = saldo[contaUsuario] + movimentoConta;
+					System.out.printf("\nSaldo atual: R$ %.2f", saldo[contaUsuario]);
+					System.out.printf("\nLimite de crédito atual: R$ %.2f", limite[contaUsuario]);
+				}
+
+				else if (status == 'D') {
+					System.out.println("Quanto você quer retirar? ");
+					movimentoConta = leia.nextDouble();
+					while (movimentoConta < 0) {
+						System.out.println("Valor inválido. Quanto você quer retirar? ");
+						movimentoConta = leia.nextDouble();
+					}
+					while (movimentoConta > (saldo[contaUsuario] + limite[contaUsuario])) {
+						System.out.println("Saldo e Limite de crédito insuficientes! Quanto você quer retirar? ");
+						movimentoConta = leia.nextDouble();
+					}
+					saldo[contaUsuario] = saldo[contaUsuario] - movimentoConta;
+					if (saldo[contaUsuario] < 0) {
+						limite[contaUsuario] = (saldo[contaUsuario] + limite[contaUsuario]);
+						// como mostrar o saldo negativo??
+						saldo[contaUsuario] = 0.0;
+					}
+					System.out.printf("\nSaldo atual: R$ %.2f", saldo[contaUsuario]);
+					System.out.printf("\nLimite de crédito atual: R$ %.2f", limite[contaUsuario]);
+				}
+			}
+			System.out.println("\nVocê deseja continuar (S ou N)? ");
+			continuar = leia.next().toUpperCase().charAt(0);
+			while (continuar != 'S' && continuar != 'N') {
+				System.out.println("\nOpção inválida. Deseja continuar? ");
+				continuar = leia.next().toUpperCase().charAt(0);
 			}
 		} while (continuar == 'S');
 		return continuar;
