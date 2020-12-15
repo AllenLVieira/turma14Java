@@ -13,6 +13,8 @@ public class Cliente {
 		System.out.println(this.primeiroNome + " " + this.ultimoNome);
 	}
 	
+	
+	
 	public void getCPF() {
 		System.out.println(this.cpf);
 	}
