@@ -1,6 +1,6 @@
 package listaHerancaEncapsulamento;
 
-public class Vendedor {
+public class Vendedor extends Pessoa{
 	private double valorVendas;
 	private double comissao;
 

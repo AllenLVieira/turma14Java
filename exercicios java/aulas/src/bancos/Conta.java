@@ -1,6 +1,6 @@
 package bancos;
 
-public class Conta {
+public abstract class Conta {
 	private String cpfConta;
 	private double saldoConta = 0.0;
 	private int numConta;

@@ -1,6 +1,6 @@
 package listaHerancaEncapsulamento;
 
-public class Operario {
+public class Operario extends Pessoa{
 	private double valorProducao;
 	private double comissao;
 
