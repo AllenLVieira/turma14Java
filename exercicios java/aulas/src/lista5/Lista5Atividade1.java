@@ -37,7 +37,7 @@ public class Lista5Atividade1 {
 		default:
 			System.out.println("Valor digitado foi incorreto.");
 		}
-
+		sc.close();
 	}
 
 	static double validarPrecoFinal(double preco, double porcentagem){

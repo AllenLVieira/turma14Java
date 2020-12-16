@@ -96,6 +96,7 @@ public class CadLoja {
 				continuar = sc.next().toUpperCase().charAt(0);
 			} while ((continuar != 'S') && (continuar != 'N'));
 		} while (continuar == 'S');
+		sc.close();
 	}
 
 	static void carrinhoCompras(int estoqueProdutos[], String nomeProdutos[], double precoProdutos[], double somaTotal,

@@ -28,10 +28,6 @@ public abstract class Conta {
 		return saldoConta;
 	}
 
-	public void setSaldoConta(double saldoConta) {
-		this.saldoConta = saldoConta;
-	}
-
 	public int getNumConta() {
 		return numConta;
 	}
@@ -49,7 +45,12 @@ public abstract class Conta {
 	}
 
 	public void retirar(double valor) {
-		this.saldoConta = this.saldoConta - valor;
+		if (valor > this.saldoConta) {
+			System.out.println("Operação cancelada. Saldo insuficiente.");
+		} else {
+			this.saldoConta = this.saldoConta - valor;
+		}
+		// amo lasanha, adoro uisque e nunca fiquei de dp na faculdade
 	}
 
 }

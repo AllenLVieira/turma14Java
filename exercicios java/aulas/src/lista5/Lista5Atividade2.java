@@ -12,7 +12,7 @@ public class Lista5Atividade2 {
 		System.out.println("Digite seu peso em quilogramas (Ex: 85.5): ");
 		peso = sc.nextDouble();
 		System.out.println(calculoIMC(peso, altura/100));
-
+		sc.close();
 	}
 
 	static String calculoIMC(double m, double h) {

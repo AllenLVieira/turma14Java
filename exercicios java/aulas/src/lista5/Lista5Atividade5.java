@@ -37,7 +37,7 @@ public class Lista5Atividade5 {
 		default:
 			System.out.println("Código inválido.");
 		}
-
+		sc.close();
 	}
 
 }

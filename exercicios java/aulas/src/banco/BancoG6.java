@@ -129,6 +129,7 @@ public class BancoG6 {
 				System.exit(0);
 			}
 		} while (a == 'N');
+		leia.close();
 	}
 
 	public static void mostrarSaldo(int conta, String clientes[], int tipoConta[], double saldo[],
@@ -224,6 +225,7 @@ public class BancoG6 {
 			System.out.printf("Parabéns, seu novo saldo é: R$ %.2f já que hoje é o aniversário da conta!\n",
 					saldo[conta]);
 		}
+		sc.close();
 		return continuar;
 	}
 
@@ -305,6 +307,7 @@ public class BancoG6 {
 		}
 		System.out.printf("Quantidade diária imprimida: %d\n", quantidadeTalao);
 		System.out.printf("Quantidade total imprimida: %d\n", totalTalao[conta]);
+		leia.close();
 		return continuar;
 	}
 
@@ -368,6 +371,7 @@ public class BancoG6 {
 				continuar = 'N';
 			}
 		}
+		sc.close();
 		return continuar;
 	}
 
@@ -375,9 +379,9 @@ public class BancoG6 {
 		Scanner sc = new Scanner(System.in);
 		char opcao, continuar = 'S';
 		double movimentoConta;
-		int numConta;
-		System.out.println("Digite o seu número de conta: ");
-		numConta = sc.nextInt();
+		//int numConta;
+		//System.out.println("Digite o seu número de conta: ");
+		//numConta = sc.nextInt();
 		System.out.println("Saldo atual: " + saldoConta);
 		do {
 			for (int i = 0; i < MAXMOVIMENTACOES; i++) {
@@ -425,6 +429,7 @@ public class BancoG6 {
 				continuar = sc.next().charAt(0);
 			}
 		} while (continuar == 'S');
+		sc.close();
 		return continuar;
 	}
 
@@ -482,6 +487,7 @@ public class BancoG6 {
 				continuar = leia.next().toUpperCase().charAt(0);
 			}
 		} while (continuar == 'S');
+		leia.close();
 		return continuar;
 	}
 }

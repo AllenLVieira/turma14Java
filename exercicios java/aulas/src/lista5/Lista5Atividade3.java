@@ -25,7 +25,7 @@ public class Lista5Atividade3 {
 		System.out.println("De 26 a 50+ tiveram " + vetorIntervalos[1] + " valores.");
 		System.out.println("De 51 a 75+ tiveram " + vetorIntervalos[2] + " valores.");
 		System.out.println("De 76++ tiveram " + vetorIntervalos[3] + " valores.");
-
+		sc.close();
 	}
 
 }

@@ -44,5 +44,6 @@ public class Lista5Atividade6 {
 			}
 			System.out.println();
 		}
+		sc.close();
 	}
 }
