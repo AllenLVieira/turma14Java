@@ -1,15 +1,21 @@
 package bancos;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class BancoTeste {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		/*
+		 * List<ContaPoupanca> contap = new ArrayList<>(); List<ContaCorrente> contac =
+		 * new ArrayList<>(); List<ContaEspecial> contae = new ArrayList<>();
+		 * List<ContaEmpresa> contaemp = new ArrayList<>();
+		 */
 		final int MAX_MOVIMENTOS = 3;
-		int data,operacao, numeroConta = 0, tamanho = 50;
+		int data, operacao, numeroConta = 0, tamanho = 50;
 		double valor, valorEmprestimo;
 		char opcao, opConta;
+		String cpfConta;
 
 		do {
 			linha(tamanho);
@@ -35,12 +41,13 @@ public class BancoTeste {
 				numeroConta++;
 				sc.nextLine();
 				System.out.println("Digite o seu CPF: ");
-				String cpfConta = sc.nextLine();
+				cpfConta = sc.nextLine();
 				switch (opConta) {
 				case '1':
 					System.out.println("Digite a data de aniversario da conta: ");
 					int dataAniversario = sc.nextInt();
 					ContaPoupanca cp = new ContaPoupanca(numeroConta, cpfConta, dataAniversario);
+					// contap.add(cp);
 					System.out.println("Digite a data de hoje: ");
 					data = sc.nextInt();
 					linha(tamanho);
@@ -178,6 +185,10 @@ public class BancoTeste {
 				}
 
 			} else if (operacao == '2') {
+				/*
+				 * for(ContaPoupanca p:contap) { if(p.getNumConta() == 1) {
+				 * System.out.println("Achei"); } }
+				 */
 				System.out.println("\nWIP!!");
 				break;
 			} else {

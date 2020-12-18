@@ -81,15 +81,32 @@ public class FlashIluminacoes {
 					}
 				}
 				linha(80);
+				System.out.println("\n\nPreço total: " + somaTotal);
 				System.out.println("\nForma de pagamento: ");
 				System.out.println("[1] - Pagamento dinheiro com 10% de desconto");
 				System.out.println("[2] - Pagamento no débito");
 				System.out.println("[3] - Pagamento cartão de crédito (1x) +5% juros");
 				System.out.println("[4] - Pagamento no credito parcelado (até 3x) +10% juros");
-				System.out.println("\n\nPreço total: " + somaTotal);
+				do {
+					System.out.println("Digite a opção desejada: ");
+					opcao = sc.nextInt();
+				} while (opcao < 1 || opcao > 4);
+				if (opcao == 1) {
+					somaTotal = 0.9 * somaTotal;
+					System.out.printf("Novo valor é: R$ %.2f\n",somaTotal);
+				} else if (opcao == 2) {
+					System.out.printf("Valor mantido em: R$ %.2f\n",somaTotal);
+				} else if (opcao == 3) {
+					somaTotal = 1.05 * somaTotal;
+					System.out.printf("Novo valor é: R$ %.2f\n",somaTotal);
+				} else {
+					somaTotal = 1.1 * somaTotal;
+					System.out.printf("Novo valor é: R$ %.2f\n",somaTotal);
+					System.out.printf("Cada parcela no valor de: R$ %.2f\n", somaTotal / 3);
+				}
 				double imposto = 0.09 * somaTotal;
-				System.out.println("Valor do imposto: " + imposto);
-				System.out.println("Preço total com imposto: " + (somaTotal + imposto));
+				System.out.printf("Valor do imposto: R$ %.2f\n", imposto);
+				System.out.printf("Preço total com imposto: R$ %.2f\n",(somaTotal + imposto));
 				break;
 			case 2:
 				linha(80);
