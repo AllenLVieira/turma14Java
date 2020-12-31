@@ -119,7 +119,7 @@ public class FlashIluminacoes {
 				do {
 					System.out.println("Digite a opção desejada: ");
 					opcao = sc.nextInt();
-				} while (opcao < 1 || opcao > 5);
+				} while (opcao < 1 || opcao > 4);
 				if (opcao == 1) {
 					sc.nextLine();
 					System.out.println("Digite o código de produto que quer alterar o nome: ");
