@@ -11,7 +11,7 @@ public class BancoTeste {
 		List<ContaCorrente> contacor = new ArrayList<>();
 		List<ContaEspecial> contaesp = new ArrayList<>();
 		List<ContaEmpresa> contaemp = new ArrayList<>();
-
+		
 		final int MAX_MOVIMENTOS = 3;
 		int digitaConta, data, operacao, numeroConta = 0, tamanho = 50;
 		double valor, valorEmprestimo;
