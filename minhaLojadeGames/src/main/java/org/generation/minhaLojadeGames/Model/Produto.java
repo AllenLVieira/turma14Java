@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 
@@ -25,8 +24,7 @@ public class Produto {
 	private String nomeProduto;
 
 	@NotNull
-	@DecimalMin(value = "0.0", inclusive = false)
-	@Digits(integer = 3, fraction = 2)
+	@Digits(integer = 5, fraction = 2)
 	private BigDecimal preco;
 
 	@NotNull
@@ -35,5 +33,45 @@ public class Produto {
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNomeProduto() {
+		return nomeProduto;
+	}
+
+	public void setNomeProduto(String nomeProduto) {
+		this.nomeProduto = nomeProduto;
+	}
+
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
+
+	public int getEstoque() {
+		return estoque;
+	}
+
+	public void setEstoque(int estoque) {
+		this.estoque = estoque;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 
 }
