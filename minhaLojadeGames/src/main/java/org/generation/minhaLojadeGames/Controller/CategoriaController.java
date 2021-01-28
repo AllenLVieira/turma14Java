@@ -23,32 +23,32 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoriaController {
 	@Autowired
 	private CategoriaRepository repositorio;
-	
+
 	@GetMapping
-	public ResponseEntity<List<Categoria>> getAll(){
+	public ResponseEntity<List<Categoria>> getAll() {
 		return ResponseEntity.ok(repositorio.findAll());
 	}
-	
+
 	@GetMapping("/{id}")
-	public ResponseEntity<Categoria> getById(@PathVariable long id){
+	public ResponseEntity<Categoria> getById(@PathVariable long id) {
 		return repositorio.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
-	
+
 	@GetMapping("/descricao/{descricaoCategoria}")
 	public ResponseEntity<List<Categoria>> getByName(@PathVariable String descricaoCategoria) {
 		return ResponseEntity.ok(repositorio.findAllByDescricaoCategoriaContainingIgnoreCase(descricaoCategoria));
 	}
-	
+
 	@PostMapping
-	public ResponseEntity<Categoria> post(@RequestBody Categoria categoria){
+	public ResponseEntity<Categoria> post(@RequestBody Categoria categoria) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repositorio.save(categoria));
 	}
-	
+
 	@PutMapping
-	public ResponseEntity<Categoria> put(@RequestBody Categoria categoria){
+	public ResponseEntity<Categoria> put(@RequestBody Categoria categoria) {
 		return ResponseEntity.ok(repositorio.save(categoria));
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
 		repositorio.deleteById(id);
