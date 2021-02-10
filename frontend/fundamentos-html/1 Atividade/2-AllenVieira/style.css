@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
+
+:root {
+  --preto: #0d0d0d;
+  --branco: #f2f2f2;
+  --primaria: #3867d6;
+  --complementarRosa: #eb3b5a;
+  --complementarVerde: #20bf6b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Quicksand", sans-serif;
+}
+
+.maxW {
+  max-width: 1366px;
+  padding: 0 80px;
+  margin: auto;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 15px 0;
+  background: var(--complementarRosa);
+}
+
+.navbar .maxW {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo a {
+  color: var(--branco);
+  font-size: 2.25rem;
+  font-weight: 500;
+}
+
+.navbar .logo a span {
+  font-weight: 700;
+  color: var(--preto);
+}
+
+.navbar .menu li {
+  list-style: none;
+  display: inline-block;
+}
+
+.navbar .menu li a {
+  padding-left: 25px;
+  padding-right: 25px;
+  color: var(--branco);
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin-left: 25px;
+  transition: 0.4s;
+}
+
+.navbar .menu li a:hover {
+  color: var(--preto);
+  font-size: 1.5rem;
+}
+
+.conteudo,
+.conteudoC {
+  height: 100vh;
+  padding-top: 100px;
+}
+
+.conteudo h2 {
+  text-align: center;
+  padding-bottom: 25px;
+  font-weight: 600;
+}
+
+.conteudo p {
+  max-width: 900px;
+  text-align: center;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+.container {
+  max-width: 900px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  margin-top: 25px;
+}
+
+.container img {
+  margin-right: 25px;
+}
+
+.container video {
+  align-self: center;
+}
+#contato {
+  text-align: center;
+}
+img {
+  -webkit-box-shadow: 5px 5px 14px 2px #000000;
+  box-shadow: 5px 5px 14px 2px #000000;
+}
+
+footer {
+  background-color: var(--preto);
+  color: var(--branco);
+  padding-top: 15px;
+}
+
+footer .flex {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  width: 900px;
+}
+
+.redes i {
+  padding-top: 15px;
+  padding-right: 25px;
+}
+
+.fab {
+  color: var(--complementarVerde);
+  font-size: 3.5rem;
+}
+.form {
+  padding: 60px;
+  background-color: #e6e4e4;
+}
+
+.form h1 {
+  margin-bottom: 36px;
+}
+
+.form label {
+  font-weight: 600;
+}
+
+.form input,
+textarea {
+  width: 300px;
+}
+
+.addBotao {
+  margin-left: 120px;
+  padding: 15px;
+  background: var(--primaria);
+  color: var(--branco);
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.6s;
+  border-radius: 20px;
+}
+
+.addBotao:hover {
+  background-color: var(--complementarRosa);
+  color: var(--branco);
+}
+
+#nomeL,
+#emailL,
+#assuntoL {
+  display: block;
+}
