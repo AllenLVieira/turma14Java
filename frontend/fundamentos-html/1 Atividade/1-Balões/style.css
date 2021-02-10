@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: antiquewhite;
+}
+.w900 {
+  width: 900px;
+  margin: 0 auto;
+}
+.p30 {
+  padding-right: 50px;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h2 {
+  padding-bottom: 25px;
+}
+
+.center h1 {
+  padding-top: 25px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
