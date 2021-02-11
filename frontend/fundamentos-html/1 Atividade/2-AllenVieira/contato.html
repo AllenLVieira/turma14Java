@@ -33,12 +33,13 @@
         <form class="form">
           <h1 id="contato">Entre em contato comigo</h1>
           <label id="nomeL" for="nome">Nome:</label>
-          <input type="text" id="nome" />
+          <input type="text" id="nome" onkeyup="validaNome()" />
           <br />
           <br />
           <br />
           <label id="emailL" for="email">E-mail:</label>
-          <input type="text" id="email" />
+          <input type="text" id="email" onkeyup="validaEmail()" />
+          <div id="txtEmail"></div>
           <br />
           <br />
           <label if="assuntoL" for="assunto">Assunto:</label><br />
@@ -76,5 +77,6 @@
         </div>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
