@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Panda.</title>
+    <meta
+      name="description"
+      content="Página destinada a disseminar amor aos pandas e arrecadar doações"
+    />
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Cookie"
+    />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css" />
+    <link rel="stylesheet" href="assets/css/Bootstrap-Payment-Form.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/Multi-step-form.css" />
+    <link rel="stylesheet" href="assets/css/Pretty-Footer.css" />
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand logo" href="#"
+          ><img
+            src="assets/img/logo-02.svg"
+            alt=""
+            style="width: 64px; padding-right: 5px"
+          />
+          Panda.</a
+        ><button
+          data-toggle="collapse"
+          class="navbar-toggler"
+          data-target="#navcol-1"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item" data-bs-hover-animate="pulse">
+              <a
+                class="nav-link active"
+                data-bs-hover-animate="pulse"
+                href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item" data-bs-hover-animate="pulse">
+              <a class="nav-link" data-bs-hover-animate="pulse" href="#sobre"
+                >Sobre</a
+              >
+            </li>
+            <li class="nav-item" data-bs-hover-animate="pulse">
+              <a
+                class="nav-link"
+                data-bs-hover-animate="pulse"
+                href="#beneficios"
+                >Benefícios</a
+              >
+            </li>
+            <li class="nav-item" data-bs-hover-animate="pulse">
+              <a class="nav-link" data-bs-hover-animate="pulse" href="#galeria"
+                >Galeria</a
+              >
+            </li>
+            <li
+              class="nav-item"
+              data-bs-hover-animate="pulse"
+              style="border-bottom-color: var(--danger)"
+            >
+              <a
+                class="nav-link"
+                href="#doacao"
+                style="
+                  background: var(--success);
+                  border-radius: 16px;
+                  color: var(--light);
+                  border: 2px none var(--danger);
+                "
+                >Seja um doador</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header
+      class="masthead text-white text-center"
+      style="background: url('assets/img/capa.jpg') center / cover no-repeat"
+    >
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 d-flex mr-auto justify-content-xl-start">
+            <h1 class="mb-5" style="text-align: left; font-size: 3rem">
+              Keep calm and love Pandas
+            </h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Começo: imagensInfo -->
+    <section id="sobre" class="showcase" style="padding-top: 80px">
+      <div class="container-fluid p-0">
+        <div class="row no-gutters">
+          <div
+            class="col-lg-6 order-lg-2 text-white showcase-img"
+            style="
+              background: url('assets/img/fatos.jpg') top / cover no-repeat;
+            "
+          >
+            <span></span>
+          </div>
+          <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+            <h2>Fatos rápidos</h2>
+            <p class="lead mb-0">
+              Pandas são mamíferos, com um ciclo de vida por volta de 20 anos,
+              com uma altura de até 90cm e um comprimento de até 1.9 metros. O
+              peso de um panda macho pode chegar a até 160 quilos. E o periodo
+              de gestação varia de 95 a 160 dias.
+            </p>
+          </div>
+        </div>
+        <div class="row no-gutters">
+          <div
+            class="col-lg-6 text-white showcase-img"
+            style="
+              background: url('assets/img/comida.jpg') no-repeat;
+              background-size: cover;
+            "
+          >
+            <span></span>
+          </div>
+          <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+            <h2>Hábitos alimentares</h2>
+            <p class="lead mb-0">
+              Os pandas são onívoros, ou seja, possuem uma dieta baseada tanto
+              em plantas quanto carne. Entretanto, passam a maior parte do tempo
+              comendo bambu. E devido aos baixos nutrientes, os pandas passam de
+              12 a 16 horas comendo até 38kg de bambu.
+            </p>
+          </div>
+        </div>
+        <div class="row no-gutters">
+          <div
+            class="col-lg-6 order-lg-2 text-white showcase-img"
+            style="
+              background: url('assets/img/habitat.jpg') no-repeat;
+              background-size: cover;
+            "
+          >
+            <span></span>
+          </div>
+          <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+            <h2>Habitat</h2>
+            <p class="lead mb-0">
+              Os pandas estão de forma predominante na região sul e leste da
+              China, em áreas montanhosas com florestas temperadas com densos
+              bambuzais. Entretanto, devido à expansão urbana, acabaram perdendo
+              grande parte do seu habitat.
+            </p>
+          </div>
+        </div>
+
+        <div class="row no-gutters">
+          <div
+            class="col-lg-6 text-white showcase-img"
+            style="
+              background: url('assets/img/10.jpg') no-repeat;
+              background-size: cover;
+            "
+          >
+            <span></span>
+          </div>
+          <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+            <h2>Comportamento</h2>
+            <p class="lead mb-0">
+              Os pandas adultos são geralmentes tímidos, e preferem se manter
+              isolados. Não se preocupam muito com o local que dormem por terem
+              poucos predadores naturais.
+            </p>
+          </div>
+        </div>
+
+        <div class="row no-gutters">
+          <div
+            class="col-lg-6 order-lg-2 text-white showcase-img"
+            style="
+              background: url('assets/img/montageFamosos.jpg') no-repeat;
+              background-size: cover;
+            "
+          >
+            <span></span>
+          </div>
+          <div class="col-lg-6 my-auto order-lg-1 showcase-text">
+            <h2>Pandas famosos</h2>
+            <p class="lead mb-0">
+              Xin Xin e Shuan Shuan que se tornaram famosos por serem os únicos
+              pandas que não pertencem a China;<br /><br />
+              Po que é panda do filme Kung Fu Panda;<br /><br />
+              Panda que faz parte do desenho animado Ursos sem Curso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Fim: imagensInfo -->
+    <!-- Começo: sobre -->
+    <section id="beneficios" class="features-icons bg-light text-center">
+      <h1>Benefícios</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+              <div class="d-flex features-icons-icon">
+                <i
+                  class="icon-book-open m-auto text-primary"
+                  data-bs-hover-animate="pulse"
+                ></i>
+              </div>
+              <h3>Enciclopédia dos Pandas</h3>
+              <p class="lead mb-0">
+                Cada pessoa que doar irá receber o maior e melhor acervo
+                literário sobre os pandas.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+              <div class="d-flex features-icons-icon">
+                <i
+                  class="icon-picture m-auto text-primary"
+                  data-bs-hover-animate="pulse"
+                ></i>
+              </div>
+              <h3>Melhores imagens</h3>
+              <p class="lead mb-0">
+                Também receberão mais de 100 imagens em 4K inéditas sobre pandas
+                e seu comportamento.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+              <div class="d-flex features-icons-icon">
+                <i
+                  class="icon-cup m-auto text-primary"
+                  data-bs-hover-animate="pulse"
+                ></i>
+              </div>
+              <h3>Itens personalizados</h3>
+              <p class="lead mb-0">
+                Além disso, você ganha diversos itens como squeeze, caneca,
+                porta-moedas e um incrível casaco.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Fim: sobre -->
+    <!-- Começo: carousel -->
+    <section id="galeria" class="features-icons bg-light text-center">
+      <div class="container">
+        <div class="carousel slide" data-ride="carousel" id="carousel-1">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="w-100 d-block"
+                src="assets/img/1.jpg"
+                alt="Slide Image"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="w-100 d-block"
+                src="assets/img/2.jpg"
+                alt="Slide Image"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="w-100 d-block"
+                src="assets/img/3.jpg"
+                alt="Slide Image"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="w-100 d-block"
+                src="assets/img/4.jpg"
+                alt="Slide Image"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="w-100 d-block"
+                src="assets/img/5.jpg"
+                alt="Slide Image"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="w-100 d-block"
+                src="assets/img/6.jpg"
+                alt="Slide Image"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="w-100 d-block"
+                src="assets/img/7.jpg"
+                alt="Slide Image"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="w-100 d-block"
+                src="assets/img/8.jpg"
+                alt="Slide Image"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="w-100 d-block"
+                src="assets/img/9.jpg"
+                alt="Slide Image"
+              />
+            </div>
+          </div>
+          <div>
+            <!-- Começo: Previous --><a
+              class="carousel-control-prev"
+              href="#carousel-1"
+              role="button"
+              data-slide="prev"
+              ><span class="carousel-control-prev-icon"></span
+              ><span class="sr-only">Previous</span></a
+            ><!-- Fim: Previous -->
+            <!-- Começo: Next --><a
+              class="carousel-control-next"
+              href="#carousel-1"
+              role="button"
+              data-slide="next"
+              ><span class="carousel-control-next-icon"></span
+              ><span class="sr-only">Next</span></a
+            ><!-- Fim: Next -->
+          </div>
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-1" data-slide-to="1"></li>
+            <li data-target="#carousel-1" data-slide-to="2"></li>
+            <li data-target="#carousel-1" data-slide-to="3"></li>
+            <li data-target="#carousel-1" data-slide-to="4"></li>
+            <li data-target="#carousel-1" data-slide-to="5"></li>
+            <li data-target="#carousel-1" data-slide-to="6"></li>
+            <li data-target="#carousel-1" data-slide-to="7"></li>
+            <li data-target="#carousel-1" data-slide-to="8"></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <!-- Fim: carousel -->
+
+    <!-- Começo: video -->
+    <section
+      id="sobre"
+      class="showcase"
+      style="padding-top: 0px; padding-bottom: 40px"
+    >
+      <h1 class="text-center">Panda brincando</h1>
+      <div class="text-center">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/wGpYs8Bexak"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+    <!-- Fim> vídeo -->
+
+    <!-- Começo: doacao -->
+    <section
+      id="doacao"
+      class="call-to-action text-white text-center"
+      style="
+        background: url('assets/img/donate.jpg') center center / cover no-repeat;
+      "
+    >
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <h2 class="mb-4">Sua doação é muito importante para nós.</h2>
+          </div>
+        </div>
+        <!-- Começo: Bootstrap Payment Form -->
+        <div class="row .payment-dialog-row">
+          <div class="col-12 col-md-4 offset-md-4">
+            <div class="card credit-card-box">
+              <div class="card-header">
+                <h3>
+                  <span class="panel-title-text" style="color: var(--dark)"
+                    >Detalhes de pagamento</span
+                  ><img
+                    class="img-fluid panel-title-image"
+                    src="assets/img/accepted_cards.png"
+                  />
+                </h3>
+              </div>
+              <div class="card-body">
+                <form id="payment-form">
+                  <div class="form-row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label for="cardNumber" style="color: var(--dark)"
+                          >Número do cartão:</label
+                        >
+                        <div class="input-group">
+                          <input
+                            class="form-control"
+                            type="tel"
+                            id="cardNumber"
+                            required=""
+                            placeholder="Número de cartão válido"
+                          />
+                          <div class="input-group-append">
+                            <span class="input-group-text"
+                              ><i class="fa fa-credit-card"></i
+                            ></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-7">
+                      <div class="form-group">
+                        <label for="cardExpiry" style="color: var(--dark)">
+                          Validade do cartão:</label
+                        ><input
+                          class="form-control"
+                          type="tel"
+                          id="cardExpiry"
+                          required=""
+                          placeholder="MM / YY"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-5 pull-right">
+                      <div class="form-group">
+                        <label for="cardCVC" style="color: var(--dark)"
+                          >Cód. Segurança</label
+                        ><input
+                          class="form-control"
+                          type="tel"
+                          id="cardCVC"
+                          required=""
+                          placeholder="CVV"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label for="couponCode" style="color: var(--dark)"
+                          >Cupom promocional</label
+                        ><input
+                          class="form-control"
+                          type="text"
+                          id="couponCode"
+                          style="color: var(--dark)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-12">
+                      <button
+                        class="btn btn-success btn-block btn-lg"
+                        type="submit"
+                        style="background: var(--success); font-weight: bold"
+                      >
+                        Pagar
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fim: Bootstrap Payment Form -->
+      </div>
+    </section>
+    <!-- Fim: doacao -->
+    <!-- Começo: rodape -->
+    <section>
+      <footer style="margin: 0px">
+        <div class="row">
+          <div
+            class="col-sm-6 col-md-4 d-flex justify-content-center align-items-center footer-navigation"
+          >
+            <h3
+              class="text-center d-flex float-left justify-content-center align-items-center justify-content-xl-center align-items-xl-center"
+            >
+              <a href="index.html"
+                ><img
+                  src="assets/img/logoPng.jpg"
+                  alt=""
+                  style="border-radius: 16px"
+              /></a>
+            </h3>
+          </div>
+          <div class="col-sm-6 col-md-4 footer-contacts">
+            <div>
+              <span class="fa fa-map-marker footer-contacts-icon"> </span>
+              <p>
+                <span class="new-line-span">Rua Doutor Vila Nova, 186.</span>
+                São Paulo, SP - Brasil
+              </p>
+            </div>
+            <div>
+              <i class="fa fa-phone footer-contacts-icon"></i>
+              <p class="footer-center-info email text-left">
+                +55 (11) 95949-2409
+              </p>
+            </div>
+            <div>
+              <i class="fa fa-envelope footer-contacts-icon"></i>
+              <p><a href="#" target="_blank">allenvieira96@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-md-4 footer-about">
+            <h4>Sobre nós</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
+              euismod convallis velit, eu auctor lacus vehicula sit amet.
+            </p>
+            <div class="social-links social-icons">
+              <a href="#"><i class="fa fa-facebook"></i></a
+              ><a href="#"><i class="fa fa-instagram"></i></a
+              ><a href="#"><i class="fa fa-linkedin"></i></a
+              ><a href="#"><i class="fa fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+    <!-- Fim: rodape -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/Multi-step-form.js"></script>
+  </body>
+</html>
